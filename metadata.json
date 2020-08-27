@@ -1,0 +1,10 @@
+{
+  "description": "Make the main shell components (Top bar, dash, workspace view) transparent",
+  "name": "Transparent Shell",
+  "shell-version": [
+    "3.36"
+  ],
+  "url": "",
+  "uuid": "transparent-shell@siroj42.github.io",
+  "version": 1
+}
