@@ -1,6 +1,8 @@
 .shell-transparency {
     background-color: rgba(0,0,0,0);
-    border: 1px solid rgba(0,0,0,0);
+    border: 0px solid rgba(0,0,0,0);
+    -panel-corner-background-color: rgba(0,0,0,0);
+    -panel-corner-border-color: rgba(0,0,0,0);
 }
 
 .show-apps:checked .overview-icon {
