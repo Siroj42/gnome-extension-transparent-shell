@@ -6,8 +6,9 @@ function enable() {
     Main.panel.actor.remove_style_class_name('solid');
     Main.panel.actor.add_style_class_name('shell-transparency');
 
-    Main.overview.dash._container.remove_style_class_name('solid');
     Main.overview.dash._container.add_style_class_name('shell-transparency');
+    
+    Main.overview._overview._controls._thumbnailsBox.add_style_class_name('shell-transparency');
 }
 
 function disable() {
@@ -15,5 +16,6 @@ function disable() {
     Main.panel.actor.add_style_class_name('solid');
 
     Main.overview.dash._container.remove_style_class_name('shell-transparency');
-    Main.overview.dash._container.add_style_class_name('solid');
+    
+    Main.overview._overview._controls._thumbnailsBox.remove_style_class_name('shell-transparency');
 }
