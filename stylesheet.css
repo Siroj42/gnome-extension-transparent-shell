@@ -2,3 +2,7 @@
     background-color: rgba(0,0,0,0);
     border: 1px solid rgba(0,0,0,0);
 }
+
+.show-apps:checked .overview-icon {
+    background-color: rgba(0,0,0,0);
+}
