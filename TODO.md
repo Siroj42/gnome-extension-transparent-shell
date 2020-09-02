@@ -1,4 +1,0 @@
-# TODO
-
-* Add settings
-* Publish
