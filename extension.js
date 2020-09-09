@@ -25,8 +25,6 @@ function disable() {
     Main.panel._leftCorner.remove_style_class_name('shell-transparency');
     Main.panel._rightCorner.remove_style_class_name('shell-transparency');
 
-    Main.mmPanel.forEach(mmpanel => mmpanel.add_style_class_name('shell-transparency'));
-
     Main.overview.dash._container.remove_style_class_name('shell-transparency');
     
     try {
