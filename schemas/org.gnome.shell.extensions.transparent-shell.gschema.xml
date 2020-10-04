@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema id="org.gnome.shell.extensions.transparent-shell" path="/org/gnome/shell/extensions/transparent-shell/">
+        <key type="b" name="top-panel">
+            <default>true</default>
+            <summary>Transparent Top Panel</summary>
+        </key>
+        <key type="b" name="dash">
+            <default>true</default>
+            <summary>Transparent Dash</summary>
+        </key>
+        <key type="b" name="workspaces">
+            <default>true</default>
+            <summary>Transparent Workspaces Overview</summary>
+        </key>
+    </schema>
+</schemalist>
