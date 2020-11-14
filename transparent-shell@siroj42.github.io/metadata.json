@@ -1,8 +1,9 @@
 {
-  "description": "Make the main shell components (Top bar, dash, workspace view) transparent",
+  "description": "Make the main shell components (Top bar, dash, workspace view) transparent.",
   "name": "Transparent Shell",
   "shell-version": [
-    "3.36"
+    "3.36",
+    "3.38"
   ],
   "url": "https://github.com/Siroj42/gnome-extension-transparent-shell",
   "uuid": "transparent-shell@siroj42.github.io",
