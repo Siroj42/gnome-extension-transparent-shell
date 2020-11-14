@@ -78,7 +78,7 @@ function enable_fkt(key){
             Main.overview._overview._controls._thumbnailsBox.add_style_class_name('shell-transparency');
             try {
                 Main.mmOverview.forEach(mmoverview => {
-                    mmoverview._controls._thumbnailsBox.add_style_class_name('shell-transparency');
+                    mmoverview._overview._controls._thumbnailsBox.add_style_class_name('shell-transparency');
                 });
             } catch (error) {
                 log(error)
@@ -114,7 +114,7 @@ function disable_fkt(key){
             Main.overview._overview._controls._thumbnailsBox.remove_style_class_name('shell-transparency');
             try {
                 Main.mmOverview.forEach(mmoverview => {
-                    mmoverview._controls._thumbnailsBox.remove_style_class_name('shell-transparency');
+                    mmoverview._overview._controls._thumbnailsBox.remove_style_class_name('shell-transparency');
                 });
             } catch (error) {
                 log(error)
