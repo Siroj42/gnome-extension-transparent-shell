@@ -26,6 +26,7 @@ function buildPrefsWidget() {
 
 	addBooleanSwitch(frame, "Transparent Top Panel", 'top-panel');
 	addBooleanSwitch(frame, "Transparent Dash", 'dash');
+	addBooleanSwitch(frame, "Transparent Search", 'search');
 	addBooleanSwitch(frame, "Transparent Workspaces Overview", 'workspaces');
 
     frame.show_all();

@@ -13,5 +13,9 @@
             <default>true</default>
             <summary>Transparent Workspaces Overview</summary>
         </key>
+        <key type="b" name="search">
+            <default>true</default>
+            <summary>Transparent Search Field</summary>
+        </key>
     </schema>
 </schemalist>

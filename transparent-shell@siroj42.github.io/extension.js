@@ -16,8 +16,9 @@ let settings = new Gio.Settings({
 
 let settingskeys = {
     "top-panel": 0,
-    "dash":0,
-    "workspaces":0
+    "dash": 0,
+    "workspaces": 0,
+    "search": 0,
 }
 
 
@@ -68,7 +69,7 @@ function enable_fkt(key){
                     mmpanel._rightCorner.add_style_class_name('shell-transparency');
                 });
             } catch (error) {
-                log(error)
+                log(error);
             }
             break;
         case "dash":
@@ -81,8 +82,11 @@ function enable_fkt(key){
                     mmoverview._overview._controls._thumbnailsBox.add_style_class_name('shell-transparency');
                 });
             } catch (error) {
-                log(error)
+                log(error);
             }
+            break;
+        case "search":
+            Main.overview.searchEntry.add_style_class_name("search-transparency");
             break;
         default:
             return;
@@ -104,7 +108,7 @@ function disable_fkt(key){
                     mmpanel._rightCorner.remove_style_class_name('shell-transparency');
                 });
             } catch (error) {
-                log(error)
+                log(error);
             }
             break;
         case "dash":
@@ -117,8 +121,11 @@ function disable_fkt(key){
                     mmoverview._overview._controls._thumbnailsBox.remove_style_class_name('shell-transparency');
                 });
             } catch (error) {
-                log(error)
+                log(error);
             }
+            break;
+        case "search":
+            Main.overview.searchEntry.remove_style_class_name("search-transparency");
             break;
         default:
             return;
