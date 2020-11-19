@@ -5,6 +5,26 @@
     -panel-corner-border-color: rgba(0,0,0,0);
 }
 
+
+/* "All Apps"-Icon in Dash */
 .shell-transparency .show-apps:checked .overview-icon {
     background-color: rgba(0,0,0,0);
+}
+
+
+/* Search */
+.search-transparency {
+    color: white;
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(255,255,255,0.2);
+}
+
+.search-transparency:focus {
+    color: white;
+    box-shadow: none;
+}
+
+/* "Type-to-search"- placeholder in search field */
+.search-transparency>.hint-text {
+    color: rgba(255,255,255,0.6);
 }
