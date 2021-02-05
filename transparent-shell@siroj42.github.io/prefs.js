@@ -20,16 +20,17 @@ function buildPrefsWidget() {
 
 	let frame = new Gtk.Box({
 		orientation: Gtk.Orientation.VERTICAL,
-		border_width: 20,
+		margin_top: 20,
+		margin_bottom: 20,
+		margin_start: 20,
+		margin_end: 20,
 		spacing: 20
 	});
 
 	addBooleanSwitch(frame, "Transparent Top Panel", 'top-panel');
 	addBooleanSwitch(frame, "Transparent Dash", 'dash');
 	addBooleanSwitch(frame, "Transparent Search", 'search');
-	addBooleanSwitch(frame, "Transparent Workspaces Overview", 'workspaces');
 
-    frame.show_all();
 	return frame;
 }
 
@@ -45,7 +46,7 @@ function addBooleanSwitch(frame, labelText, key) {
 	);
 
 	let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL, spacing: 20});
-	hbox.add(new Gtk.Label({label: labelText, use_markup: true}));
-	hbox.add(gtkSwitch);
-	frame.add(hbox);
+	hbox.append(new Gtk.Label({label: labelText, use_markup: true}));
+	hbox.append(gtkSwitch);
+	frame.append(hbox);
 }
