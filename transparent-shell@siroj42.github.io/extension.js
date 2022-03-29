@@ -23,9 +23,19 @@ const settingskeys = {
   search: 0,
 };
 
+const SHELL_TRANSPARENCY = "shell-transparency";
+
 function init() {
   log("Starting transparent-shell extension");
 }
+
+const toggleTransparency = (el, enabled = true) => {
+  if (el) {
+    el[enabled ? "add_style_class_name" : "remove_style_class_name"](
+      SHELL_TRANSPARENCY
+    );
+  }
+};
 
 function enable() {
   Object.keys(settingskeys).forEach((key) => {
