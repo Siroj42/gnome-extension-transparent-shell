@@ -37,6 +37,28 @@ const toggleTransparency = (el, enabled = true) => {
   }
 };
 
+const componentToggles = {
+  "top-panel": (isEnabled) => {
+    try {
+      [Main.panel, ...Main.mmPanel].forEach((mmpanel) => {
+        toggleTransparency(mmpanel, isEnabled);
+        if (mmpanel._leftCorner) {
+          toggleTransparency(mmpanel._leftCorner, isEnabled);
+        }
+        if (mmpanel._rightCorner) {
+          toggleTransparency(mmpanel._rightCorner, isEnabled);
+        }
+      });
+    } catch (error) {
+      log(error);
+    }
+  },
+  dash: (isEnabled) =>
+    toggleTransparency(Main.overview.dash._background, isEnabled),
+  search: (isEnabled) =>
+    toggleTransparency(Main.overview.searchEntry, isEnabled),
+};
+
 function enable() {
   Object.keys(settingskeys).forEach((key) => {
     if (settings.get_boolean(key)) {
