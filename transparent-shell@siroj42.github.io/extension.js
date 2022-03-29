@@ -4,20 +4,20 @@ const ExtensionUtils = imports.misc.extensionUtils;
 
 const Extension = ExtensionUtils.getCurrentExtension();
 
-let gschema = Gio.SettingsSchemaSource.new_from_directory(
+const gschema = Gio.SettingsSchemaSource.new_from_directory(
   Extension.dir.get_child("schemas").get_path(),
   Gio.SettingsSchemaSource.get_default(),
   false
 );
 
-let settings = new Gio.Settings({
+const settings = new Gio.Settings({
   settings_schema: gschema.lookup(
     "org.gnome.shell.extensions.transparent-shell",
     true
   ),
 });
 
-let settingskeys = {
+const settingskeys = {
   "top-panel": 0,
   dash: 0,
   search: 0,
