@@ -29,25 +29,19 @@ function init() {
   log("Starting transparent-shell extension");
 }
 
-const toggleTransparency = (el, enabled = true) => {
-  if (el) {
-    el[enabled ? "add_style_class_name" : "remove_style_class_name"](
-      SHELL_TRANSPARENCY
-    );
-  }
-};
+const toggleTransparency = (el, enabled = true) =>
+  el &&
+  el[enabled ? "add_style_class_name" : "remove_style_class_name"](
+    SHELL_TRANSPARENCY
+  );
 
 const componentToggles = {
   "top-panel": (isEnabled) => {
     try {
       [Main.panel, ...Main.mmPanel].forEach((mmpanel) => {
         toggleTransparency(mmpanel, isEnabled);
-        if (mmpanel._leftCorner) {
-          toggleTransparency(mmpanel._leftCorner, isEnabled);
-        }
-        if (mmpanel._rightCorner) {
-          toggleTransparency(mmpanel._rightCorner, isEnabled);
-        }
+        toggleTransparency(mmpanel._leftCorner, isEnabled);
+        toggleTransparency(mmpanel._rightCorner, isEnabled);
       });
     } catch (error) {
       log(error);
