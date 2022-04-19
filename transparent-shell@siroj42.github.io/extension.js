@@ -38,11 +38,14 @@ const toggleTransparency = (el, enabled = true) =>
 const componentToggles = {
   "top-panel": (isEnabled) => {
     try {
-      [Main.panel, ...Main.mmPanel].forEach((mmpanel) => {
-        toggleTransparency(mmpanel, isEnabled);
-        toggleTransparency(mmpanel._leftCorner, isEnabled);
-        toggleTransparency(mmpanel._rightCorner, isEnabled);
-      });
+      [Main.panel]
+        .concat(Main?.mmPanel)
+        .filter((p) => !!p)
+        .forEach((mmpanel) => {
+          toggleTransparency(mmpanel, isEnabled);
+          toggleTransparency(mmpanel._leftCorner, isEnabled);
+          toggleTransparency(mmpanel._rightCorner, isEnabled);
+        });
     } catch (error) {
       log(error);
     }
