@@ -16,4 +16,4 @@ You can also clone the repo: `git clone -b v6 --depth 1 https://github.com/Siroj
 
 ## Screenshots
 
-![Desktop/Activities Overview](./screenshots/transparent-shell-40.gif)
+![Desktop/Activities Overview](./screenshots/transparent-shell-42.gif)
