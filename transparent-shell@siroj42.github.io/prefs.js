@@ -7,15 +7,7 @@ const Extension = ExtensionUtils.getCurrentExtension();
 function init() { }
 
 function buildPrefsWidget() {
-	let gschema = Gio.SettingsSchemaSource.new_from_directory(
-		Extension.dir.get_child('schemas').get_path(),
-		Gio.SettingsSchemaSource.get_default(),
-		false
-	);
-
-	this.settings = new Gio.Settings({
-		settings_schema: gschema.lookup('org.gnome.shell.extensions.transparent-shell', true)
-	});
+	this.settings = ExtensionUtils.getSettings();
 
 
 	let frame = new Gtk.Box({

@@ -4,19 +4,6 @@ const ExtensionUtils = imports.misc.extensionUtils;
 
 const Extension = ExtensionUtils.getCurrentExtension();
 
-const gschema = Gio.SettingsSchemaSource.new_from_directory(
-  Extension.dir.get_child("schemas").get_path(),
-  Gio.SettingsSchemaSource.get_default(),
-  false
-);
-
-const settings = new Gio.Settings({
-  settings_schema: gschema.lookup(
-    "org.gnome.shell.extensions.transparent-shell",
-    true
-  ),
-});
-
 const settingskeys = {
   "top-panel": 0,
   dash: 0,
@@ -50,31 +37,33 @@ const componentToggles = {
       log(error);
     }
   },
-  dash: (isEnabled) =>
+  "dash": (isEnabled) =>
     toggleTransparency(Main.overview.dash._background, isEnabled),
-  search: (isEnabled) =>
+  "search": (isEnabled) =>
     toggleTransparency(Main.overview.searchEntry, isEnabled),
 };
 
 const onChange = (_, key) => {
-  const isEnabled = settings.get_boolean(key);
+  const isEnabled = this.settings.get_boolean(key);
   if (componentToggles[key]) {
     componentToggles[key](isEnabled);
   }
 };
 
 function enable() {
+  this.settings = ExtensionUtils.getSettings();
   Object.keys(settingskeys).forEach((key) => {
-    if (settings.get_boolean(key)) {
+    if (this.settings.get_boolean(key)) {
       componentToggles[key](true);
     }
-    settingskeys[key] = settings.connect("changed::" + key, onChange);
+    settingskeys[key] = this.settings.connect("changed::" + key, onChange);
   });
 }
 
 function disable() {
   Object.keys(settingskeys).forEach((key) => {
     componentToggles[key](false);
-    settings.disconnect(settingskeys[key]);
+    this.settings.disconnect(settingskeys[key]);
   });
+  this.settings = null;
 }

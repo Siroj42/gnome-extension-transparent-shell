@@ -4,5 +4,6 @@
   "shell-version": ["40", "41", "42"],
   "url": "https://github.com/Siroj42/gnome-extension-transparent-shell",
   "uuid": "transparent-shell@siroj42.github.io",
+  "settings-schema": "org.gnome.shell.extensions.transparent-shell",
   "version": 8
 }
