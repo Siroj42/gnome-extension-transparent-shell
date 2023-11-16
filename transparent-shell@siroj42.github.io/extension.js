@@ -1,4 +1,4 @@
-import Main from 'imports/ui/main';
+import * as Main from "resource:///org/gnome/shell/ui/main.js";
 import { Gio } from 'imports.gi';
 import { ExtensionUtils } from 'imports.misc.extensionUtils';
 
