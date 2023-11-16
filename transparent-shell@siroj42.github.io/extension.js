@@ -1,6 +1,26 @@
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
 import Gio from 'gi://Gio';
-import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+
+let extensionObject, extensionSettings;
+
+import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
+
+export default class shell_transparency extends Extension {
+    enable() {
+        this._settings = this.getSettings();
+        console.log(_('This is a translatable text'));
+    }
+
+    disable() {
+        this._settings = null;
+    }
+}
+
+export function log_level() {
+let settings = Extension.lookupByURL(import.meta.url).getSettings();
+let log_level = settings.get_uint('log-level');
+return log_level;
+}
 
 export const settingskeys = {
   "top-panel": 0,
@@ -8,7 +28,8 @@ export const settingskeys = {
   search: 0,
 };
 
-export const SHELL_TRANSPARENCY = "shell-transparency";
+const SHELL_TRANSPARENCY = "shell-transparency";
+export { SHELL_TRANSPARENCY };
 
 export function init() {
   log("Starting transparent-shell extension");
@@ -49,7 +70,7 @@ export const onChange = (_, key) => {
 };
 
 export function enable() {
-  this.settings = ExtensionUtils.getSettings();
+  this.settings = Extension.lookupByURL(import.meta.url).getSettings();
   Object.keys(settingskeys).forEach((key) => {
     if (this.settings.get_boolean(key)) {
       componentToggles[key](true);
