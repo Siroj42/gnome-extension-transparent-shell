@@ -1,25 +1,40 @@
-import { getSettings, bind } from 'utils';
-import { Gtk, Gio, ExtensionUtils } from 'imports';
+import Gtk from "gi://Gtk";
+
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 export function init() {}
 
-export function buildPrefsWidget() {
-  const settings = getSettings();
+import { Box, Orientation } from 'ExtensionPreferences'; // Replace 'some-library' with the actual library you're using
 
-  let frame = new Gtk.Box({
-    orientation: Gtk.Orientation.VERTICAL,
-    margin_top: 20,
-    margin_bottom: 20,
-    margin_start: 20,
-    margin_end: 20,
-    spacing: 20,
-  });
+export default class MyExtensionPreferences extends ExtensionPreferences {
+  constructor(settings) {
+    super(settings);
 
-  addBooleanSwitch(frame, "Transparent Top Panel", 'top-panel', settings);
-  addBooleanSwitch(frame, "Transparent Dash", 'dash', settings);
-  addBooleanSwitch(frame, "Transparent Search", 'search', settings);
+    const frame = this.createFrame();
 
-  return frame;
+    this.addBooleanSwitch(frame, "Transparent Top Panel", 'top-panel', settings);
+    this.addBooleanSwitch(frame, "Transparent Dash", 'dash', settings);
+    this.addBooleanSwitch(frame, "Transparent Search", 'search', settings);
+
+    return frame;
+  }
+
+  createFrame() {
+    return new Box({
+      orientation: Orientation.VERTICAL,
+      margin_top: 20,
+      margin_bottom: 20,
+      margin_start: 20,
+      margin_end: 20,
+      spacing: 20,
+    });
+  }
+
+  addBooleanSwitch(frame, label, key, settings) {
+    // Assuming you have a method to add boolean switches to the frame
+    // Implement or replace with the actual method you are using
+    // Example: frame.addBooleanSwitch(label, key, settings);
+  }
 }
 
 export function addBooleanSwitch(frame, labelText, key, settings) {
