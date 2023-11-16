@@ -1,6 +1,5 @@
-// extension.js
-import { log } from 'utils';
-import { main, overview, gi, misc } from 'imports.ui';
+import Main from 'imports/ui/main';
+import { Gio } from 'imports.gi';
 import { ExtensionUtils } from 'imports.misc.extensionUtils';
 
 const Extension = ExtensionUtils.getCurrentExtension();
