@@ -1,8 +1,6 @@
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
 import Gio from 'gi://Gio';
-import { ExtensionUtils } from 'imports.misc.extensionUtils';
-
-const Extension = ExtensionUtils.getCurrentExtension();
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 export const settingskeys = {
   "top-panel": 0,
