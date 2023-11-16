@@ -1,5 +1,5 @@
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
-import { Gio } from 'imports.gi';
+import Gio from 'gi://Gio'
 import { ExtensionUtils } from 'imports.misc.extensionUtils';
 
 const Extension = ExtensionUtils.getCurrentExtension();
